@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int func(int num) 
+{
+   int i;
+   int flag = 1; //let flag be equal to one
+   for(i = 2; i <= num/2; ++i) {
+      if(num % i == 0) {
+         flag = 0;
+         break;
+      }
+   }
+   return flag;
+}
+int main() {
+   int num , j;
+   cout << "Enter a number to express as sum of prime numbers : \n";
+   cin >> num;
+   for(j = 2; j <= num/2; ++j) {
+      if (func(j)) {
+         if (func(num - j)) {
+            cout << num << " = " << j << " + " << num-j << endl;
+         }
+      }
+   }
+   return 0;
+}
